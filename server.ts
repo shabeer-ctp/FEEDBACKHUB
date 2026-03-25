@@ -3,8 +3,8 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import jwt from "jsonwebtoken";
-import db from "./db.ts";
-import { analyzeSentiment, generateSummary } from "./sentiment.ts";
+import db from "./db";
+import { analyzeSentiment, generateSummary } from "./sentiment";
 
 const JWT_SECRET = process.env.JWT_SECRET || "feedbackhub-secret-key-2026";
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
