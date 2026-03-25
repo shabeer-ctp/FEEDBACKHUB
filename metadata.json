@@ -1,0 +1,5 @@
+{
+  "name": "FeedbackHub",
+  "description": "A full-stack feedback collection and analysis platform with sentiment detection and admin dashboard.",
+  "requestFramePermissions": []
+}
