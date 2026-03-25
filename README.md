@@ -1,36 +1,37 @@
-# FeedbackHub 🚀
+# FeedbackHub
 
-FeedbackHub is a full-stack customer feedback management platform. It allows users to submit feedback, and admins to analyze trends using a sentiment analysis engine and a visual dashboard.
+FeedbackHub is a full-stack customer feedback management platform. It lets users submit feedback and gives admins a clean dashboard to review trends, sentiment, and exports.
 
-## 🌟 Features
+## Demo
 
-- **Feedback Submission**: Public form with category selection.
-- **Sentiment Analysis**: Automatic scoring and urgency detection.
-- **AI Summary**: Intelligent aggregation of recent feedback trends.
-- **Analytics Dashboard**: Visual charts for sentiment and category distribution.
-- **Admin Portal**: Secure JWT-protected management area.
-- **Export Data**: Download feedback as CSV or JSON.
-- **Responsive Design**: Works on desktop and mobile.
+Watch the demo video here: [feedbackhub-demo.webm](./docs/feedbackhub-demo.webm)
 
----
+## Features
 
-## 💻 Local Development
+- Public feedback submission form with category selection
+- Sentiment scoring and urgent-issue detection
+- Summary insights from recent feedback
+- Analytics dashboard with charts
+- Admin portal with search, filters, and delete actions
+- CSV and JSON export options
+- Responsive interface for desktop and mobile
 
-To run this project locally on your machine, follow these steps:
+## Local Development
 
-### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- npm (comes with Node.js)
+### Prerequisites
 
-### 2. Installation
-Clone the repository or download the source code, then navigate to the project folder:
+- Node.js 18 or higher
+- npm
+
+### Installation
 
 ```bash
 npm install
 ```
 
-### 3. Environment Setup
-Create a `.env` file in the root directory (you can copy from `.env.example`):
+### Environment Setup
+
+Create a `.env` file in the project root if you want custom values:
 
 ```env
 JWT_SECRET=your_secret_key_here
@@ -38,47 +39,39 @@ ADMIN_USER=admin
 ADMIN_PASS=admin123
 ```
 
-### 4. Run the Application
-Start the development server (Express + Vite):
+### Run the App
 
 ```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+The app runs at `http://localhost:3000`.
 
----
+## Deployment
 
-## ☁️ Deployment
+### Vercel Notes
 
-### Deploying to Vercel
+This project currently uses SQLite through `feedback.db`.
 
-FeedbackHub is designed to be deployable on Vercel. However, please note the following:
+- On Vercel, the file system is ephemeral, so local SQLite data will not persist reliably.
+- For production use, replace the SQLite setup in `db.ts` with a hosted database such as Supabase Postgres or Vercel Postgres.
+- Configure `JWT_SECRET`, `ADMIN_USER`, and `ADMIN_PASS` in your deployment environment.
 
-1. **Database**: This app uses **SQLite** (`feedback.db`) by default. Vercel's file system is ephemeral, meaning any data saved to the SQLite file will be lost when the server restarts. 
-   - **For Production**: You should replace the SQLite logic in `db.ts` with a cloud database like **Supabase (PostgreSQL)** or **Vercel Postgres**.
-2. **Configuration**:
-   - The `vercel.json` file is already included to handle the Express backend.
-   - Set your Environment Variables (`JWT_SECRET`, `ADMIN_USER`, `ADMIN_PASS`) in the Vercel Dashboard.
+### Deployment Steps
 
-### Deployment Steps:
-1. Push your code to a GitHub repository.
-2. Connect the repository to Vercel.
-3. Ensure the **Build Command** is `npm run build` and the **Output Directory** is `dist`.
-4. Add your environment variables.
-5. Deploy!
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Use `npm run build` as the build command.
+4. Use `dist` as the output directory.
+5. Add the required environment variables and deploy.
 
----
+## Tech Stack
 
-## 🛠️ Tech Stack
+- Frontend: React, Vite, Tailwind CSS, Recharts, Lucide React, Motion
+- Backend: Node.js, Express, JWT, BcryptJS
+- Database: SQLite with `better-sqlite3`
+- Analysis: Custom sentiment and summary logic
 
-- **Frontend**: React 18, Vite, Tailwind CSS, Recharts, Lucide React, Motion.
-- **Backend**: Node.js, Express, JWT, BcryptJS.
-- **Database**: SQLite (better-sqlite3).
-- **Analysis**: Custom Sentiment & NLP Engine.
-
----
-
-## 📄 License
+## License
 
 MIT License. Built by Shabeer.
